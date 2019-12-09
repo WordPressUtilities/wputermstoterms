@@ -1,10 +1,10 @@
 <?php
 
 /*
-Plugin Name: WPU Terms to Posts
+Plugin Name: WPU Terms to Terms
 Plugin URI: https://github.com/WordPressUtilities/wputermstoterms
 Description: Link terms to terms from the term edit page.
-Version: 0.1.0
+Version: 0.1.1
 Author: Darklg
 Author URI: http://darklg.me/
 License: MIT License
@@ -62,12 +62,12 @@ class WPUTermsToTerms {
 
         /* Remove all old links */
         foreach ($removedlinks as $target_term_id) {
-            $this->change_link('remove', $target_term_id, $term_id, $linkedterm['from']['meta_key'], $k);
+            $this->change_link('remove', $target_term_id, $term_id, $linkedterm['to']['meta_key'], $k);
         }
 
         /* Add new links */
         foreach ($linkedterms_now as $target_term_id) {
-            $this->change_link('add', $target_term_id, $term_id, $linkedterm['from']['meta_key'], $k);
+            $this->change_link('add', $target_term_id, $term_id, $linkedterm['to']['meta_key'], $k);
         }
 
         /* Save linked terms */
